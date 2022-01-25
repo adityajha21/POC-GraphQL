@@ -1,8 +1,8 @@
-type Pokemon {
+type Bank {
     id: ID!
     name: String!
 }
 
 type Query {
-    pokemon(id: ID!): Pokemon
+    pokemon(id: ID!): Bank
 }
