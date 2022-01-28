@@ -1,8 +1,6 @@
-type Bank1 {
-    id: ID!
-    name: String!
-}
 
 type Query {
-    pokemon(id: ID!): Bank1
+    bankAccount(id: ID): BankAccount
+    sum(a:Int, b:Int) : Int
+    test : String
 }
