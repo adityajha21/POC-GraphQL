@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -24,4 +25,15 @@ public class EmployeeController {
             return employeeRepository.save(employee);
     }
 
+    @GetMapping("/employees/{id}")
+    public Optional<Employee> getEmpById(@PathVariable("id") Long id) {
+        Optional<Employee> e = employeeRepository.findById(id);
+       return e;
+        }
+
+
+ /*   @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee e) {
+        return employeeRepository.
+    }*/
 }
