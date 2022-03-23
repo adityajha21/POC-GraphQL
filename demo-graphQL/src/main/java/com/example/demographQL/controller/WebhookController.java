@@ -16,6 +16,5 @@ public class WebhookController {
     public ResponseEntity<Payload> print(@RequestBody Payload requestBody) {
         System.out.print("#####" +requestBody.getCommitId());
         return new ResponseEntity<>(requestBody, HttpStatus.CREATED);
-       // return new ResponseEntity<Payload>(requestBody, HttpStatus.CREATED);
     }
 }
