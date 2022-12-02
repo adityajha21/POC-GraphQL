@@ -1,0 +1,138 @@
+ 
+Core java:
+• Immutable class  -- 
+• The class must be declared as final so that child classes can’t be created.
+• Data members in the class must be declared private so that direct access is not allowed.
+• Data members in the class must be declared as final so that we can’t change the value of it after object creation.
+• A parameterized constructor should initialize all the fields performing a deep copy so that data members can’t be modified with an object reference.
+• Deep Copy of objects should be performed in the getter methods to return a copy rather than returning the actual object reference)
+Note: There should be no setters or in simpler terms, there should be no option to change the value of the instance variable.
+
+• Singleton class -- 
+// Java program implementing Singleton class
+// with using getInstance() method
+
+// Class 1
+// Helper class
+class Singleton {
+	private static Singleton single_instance = null;
+	public String s;
+	private Singleton(){
+		s = "Hello I am a string part of Singleton class"; }
+
+	public static Singleton getInstance()
+	{
+		if (single_instance == null)
+			single_instance = new Singleton();
+
+		return single_instance;
+	}
+}
+When to use a transient variable in Java? (answer)
+hint: when you want to make a variable non-serializable in a class, which implements the Serializable interface. In other words, you can use it for a variable whose value you don't want to save.
+9) Difference between the transient and volatile variable in Java? (answer)
+hint: totally different, one used in the context of serialization while the other is used in concurrency.
+10) When to use the volatile variable in Java? (answer)
+hint: when you need to instruct the JVM that a variable can be modified by multiple threads and give hint to JVM that does not cache its value.
+ Can we override the private method in Java? (answer)
+hint: No, because it's not visible in the subclass, a primary requirement for overriding a method in Java.
+
+Can we override static method in Java? (answer)\
+hint: No, because overriding resolves at runtime while static method call is resolved at compile tim
+
+
+• Serialization  -- 
+Serialization is a mechanism of converting the state of an object into a byte stream
+Advantages of Serialization
+1. To save/persist state of an object.
+2. To travel an object across a network.
+
+
+Volatile keyword ,
+ transient keyword  -- ADDED
+  Marker interface
+  Internal working of String -- 
+  Final vs immutable -
+  Hashmap , internal working of it : override equals and hashcode method 
+  
+  Ways to implement thread : Thread, Runnable, Callable  
+  Executor , Fork-Join Executor (Recursively) 
+ 
+ REST:
+ REST vs SOAP
+What is wrapper class and its use?
+A Wrapper class is a class which contains the primitive data types (int, char, short, byte, etc).
+Why wrapper classes are used in Java?
+Wrapper classes are used to convert any data type into an object. The primitive data types are not objects; they do not belong to any class; they are defined in the language itself. Sometimes, it is required to convert data types into objects in Java language.
+
+Can you add a null element into a TreeSet or HashSet?
+We can add null elements in a HashSet but we cannot add null elements in a TreeSet. The reason is that TreeSet uses the compareTo() method for comparing and it throws a NullPointerException when it encounters a null element.
+
+TryWithResource :
+For try-with-resources, if an exception is thrown in a try block and in a try-with-resources statement, then the method returns the exception thrown in the try block. The exceptions thrown by try-with-resources are suppressed, i.e. we can say that try-with-resources block throws suppressed exceptions.
+
+Can you use HashMap in a concurrent application? (answer)
+hint — Yes, but only if you are reading from the HashMap and its initialized by a single thread, otherwise no.
+
+How ConcurrentHashMap works in Java? (answer)
+partitions map into segments and lock them individually instead of locking the whole map.
+
+What is the difference between LinkedHashSet and TreeSet in Java? (answer)
+hint — TreeSetis a sorted set where elements are stored in their natural or custom sorting order depending upon comparable and comparator while LinkedHashSet is just an ordered collection that maintains insertion order.
+
+
+
+6. Can a functional interface extend/inherit another interface?
+A functional interface cannot extend another interface with abstract methods as it will void the rule of one abstract method per functional interface.
+
+
+What is the default method, and why is it required?
+
+Runnable: use to execute the instances of a class over another thread with no arguments and no return value. 
+Callable: use to execute the instances of a class over another thread with no arguments and it either returns a value or throws an exception.
+
+Write a program to print 5 random numbers in sorted order using forEach in Java 8?
+ public static void main(String[] args) {
+ 
+        Random random = new Random();
+        random.ints().limit(5).sorted().forEach(System.out::println);
+
+(String… args) is an array of parameters of type String, whereas String[] is a single parameter. String[] can full fill the same purpose but just (String… args)provides more readability and easiness to use. It also provides an option that we can pass multiple arrays of String rather than a single one using String[]. It can be used when the programmer wishes to you Varargs as per the program requirements.
+
+@Funcational interface : predicate, function, consumer 
+
+
+
+How does Spring Boot works?
+Spring Boot automatically configures your application based on the dependencies you have added to the project by using annotation. The entry point of the spring boot application is the class that contains @SpringBootApplication annotation and the main method.
+Spring Boot automatically scans all the components included in the project by using @ComponentScan annotation.
+
+What does the @SpringBootApplication annotation do internally?
+The @SpringBootApplication annotation is equivalent to using @Configuration, @EnableAutoConfiguration, and @ComponentScan with their default attributes. Spring Boot enables the developer to use a single annotation instead of using multiple. But, as we know, Spring provided loosely coupled features that we can use for each annotation as per our project needs.
+
+Can we create a non-web application in Spring Boot?
+Yes, we can create a non-web application by removing the web dependencies from the classpath along with changing the way Spring Boot creates the application context.
+
+16. Is it possible to change the port of the embedded Tomcat server in Spring Boot?
+
+
+Can we override or replace the Embedded tomcat server in Spring Boot?
+Yes, we can replace the Embedded Tomcat server with any server by using the Starter dependency in the pom.xml file. Like you can use spring-boot-starter-jetty as a dependency for using a jetty server in your project
+
+What is the use of Profiles in spring boot?
+While developing the application we deal with multiple environments such as dev, QA, Prod, and each environment requires a different configuration. For eg., we might be using an embedded H2 database for dev but for prod, we might have proprietary Oracle or DB2. Even if DBMS is the same across the environment, the URLs will be different.
+To make this easy and clean, Spring has the provision of Profiles to keep the separate configuration of environments.
+
+26. What is Spring Actuator? What are its advantages?
+An actuator is an additional feature of Spring that helps you to monitor and manage your application when you push it to production. These actuators include auditing, health, CPU usage, HTTP hits, and metric gathering, and many more that are automatically applied to your application
+
+ @ControllerAdvice
+
+
+
+
+
+
+
+
+
